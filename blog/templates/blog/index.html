@@ -1,4 +1,6 @@
-<h1> @ainesmile </h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}"/>
+<nav> @ainesmile </nav>
 <h2> Ting Shen's Blog.</h2>
 {% if article_list %}
   {% for article in article_list %}
