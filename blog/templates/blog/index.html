@@ -1,0 +1,8 @@
+<h1> @ainesmile </h1>
+<h2> Ting Shen's Blog.</h2>
+{% if article_list %}
+  {% for article in article_list %}
+  <ul> {{ article.title }} </ul>
+    <li> {{ article.text }} </li>
+  {% endfor %}
+{% endif %}
