@@ -1,0 +1,11 @@
+{% block article_meta %}
+<div>
+    {% if article.tags.all %}
+      {% for tag in article.tags.all %}
+        <span>{{tag.name}}</span>
+      {% endfor %}
+    {% endif %}
+    |
+    <span> {{ article.pub_date|date:"M d, Y"}} </span>
+</div>
+{% endblock %}

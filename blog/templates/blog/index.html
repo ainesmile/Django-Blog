@@ -1,22 +1,15 @@
 {% extends "./base.html" %}
 
+
 {% block site_title %} ainesmie {% endblock %}
 
-{% block article_list %}
+{% block main %}
   {% if article_list %}
     <ul>
       {% for article in article_list %}
         <li>
           <h2>{{ article.title }}</h2>
-          <div>
-            {% if article.tags.all %}
-              {% for tag in article.tags.all %}
-                <span>{{tag.name}}</span>
-              {% endfor %}
-            {% endif %}
-            |
-            <span> {{ article.pub_date|date:"M d, Y"}} </span>
-          </div>
+          {% include "./article_meta.html" %}
         </li>
       {% endfor %}
     </ul>
