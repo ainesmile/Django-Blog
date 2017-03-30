@@ -9,12 +9,13 @@
         <li>
           <h2>{{ article.title }}</h2>
           <div>
-            {% if article.tags %}
-              {% for tag in article.tags %}
-                <span>tag</span>
+            {% if article.tags.all %}
+              {% for tag in article.tags.all %}
+                <span>{{tag.name}}</span>
               {% endfor %}
             {% endif %}
-            <span> {{ article.pub_date }} </span>
+            |
+            <span> {{ article.pub_date|date:"M d, Y"}} </span>
           </div>
         </li>
       {% endfor %}
