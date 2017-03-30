@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCATYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ainesmile{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'blog/pics/ainesmile.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    {% block extrastyle %} {% endblock %}
+    {% block extrahead %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="/">
+          <h1>{% block site_title %} Home {% endblock %}</h1>
+        </a>
+        <a href="/">About me </a>
+      </div>
+    </header>
+    <main>
+      {% block article_list %} No Article {% endblock %}
+    </main>
+    <footer>
+      <ul>
+        <li><a href="https://github.com/ainesmile">Github</a></li>
+        <li><a href="https://twitter.com/ainesmile">Twitter</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
