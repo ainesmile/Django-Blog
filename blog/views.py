@@ -7,3 +7,8 @@ def index(request):
     template_name = 'blog/index.html'
     article_list = Article.objects.all()
     return render(request, template_name, {'article_list': article_list})
+
+def article(request, article_id):
+    template_name = 'blog/article.html'
+    article = Article.objects.get(pk=article_id)
+    return render(request, template_name, {'article': article})

@@ -1,6 +1,5 @@
 {% extends "./base.html" %}
 
-
 {% block site_title %} ainesmie {% endblock %}
 
 {% block main %}
@@ -8,7 +7,7 @@
     <ul>
       {% for article in article_list %}
         <li>
-          <h2>{{ article.title }}</h2>
+        <a href="article/{{article.id}}"><h2>{{ article.title }}</h2></a>
           {% include "./article_meta.html" %}
         </li>
       {% endfor %}
