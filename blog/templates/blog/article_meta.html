@@ -2,7 +2,7 @@
 <div>
     {% if article.tags.all %}
       {% for tag in article.tags.all %}
-        <span>{{tag.name}}</span>
+        <a href="/tag/{{tag.id}}"><span>{{tag.name}}</span></a>
       {% endfor %}
     {% endif %}
     |

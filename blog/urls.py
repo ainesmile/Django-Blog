@@ -21,5 +21,6 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^article/(?P<article_id>\d+)/$', views.article, name='article')
+    url(r'^article/(?P<article_id>\d+)/$', views.article, name='article'),
+    url(r'^tag/(?P<tag_id>\d+)/$', views.tag, name='tag'),
 ]

@@ -1,0 +1,10 @@
+{% extends "./base.html" %}
+
+{% block main %}
+  <h1>{{ tag.name }}</h1>
+  <ul>
+  {% for article in tag.article_set.all %}
+    <li><a href="/article/{{article.id}}">{{article.title}}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}
