@@ -7,20 +7,23 @@
     <title>{% block title %}ainesmile{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'blog/pics/ainesmile.jpg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/dist/css/bootstrap.css' %}">
     {% block extrastyle %} {% endblock %}
     {% block extrahead %} {% endblock %}
   </head>
   <body>
     <header>
-      <div>
-        <a href="/">
-          <h1>{% block site_title %} Home {% endblock %}</h1>
-        </a>
-        <a href="/admin">
-          <h1>Admin</h1>
-        </a>
-        <a href="/">About me </a>
-      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active">
+          <a href="#">{% block site_title %} Home {% endblock %}</a>
+        </li>
+        <li role="presentation">
+          <a href="/admin">Admin</a>
+        </li>
+        <li role="presentation">
+          <a href="/"> About me </a>
+        </li>
+      </ul>
     </header>
     <main>
       {% block main %} No Post {% endblock %}
