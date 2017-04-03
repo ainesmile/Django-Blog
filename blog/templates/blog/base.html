@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}ainesmile{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'blog/pics/ainesmile.jpg' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'lib/bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
     {% block extrastyle %} {% endblock %}
     {% block extrahead %} {% endblock %}
   </head>
   <body>
     <header>
       <ul class="nav nav-pills">
-        <li role="presentation" class="active">
+        <li role="presentation">
           <a href="#">{% block site_title %} Home {% endblock %}</a>
         </li>
         <li role="presentation">
@@ -29,9 +29,13 @@
       {% block main %} No Post {% endblock %}
     </main>
     <footer>
-      <ul>
-        <li><a href="https://github.com/ainesmile">Github</a></li>
-        <li><a href="https://twitter.com/ainesmile">Twitter</a></li>
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <a href="https://github.com/ainesmile">Github</a>
+        </li>
+        <li role="presentation">
+          <a href="https://twitter.com/ainesmile">Twitter</a>
+        </li>
       </ul>
     </footer>
   </body>
