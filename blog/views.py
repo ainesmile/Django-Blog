@@ -1,12 +1,27 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Article, Tag
 
 def index(request):
     template_name = 'blog/index.html'
     article_list = Article.objects.all()
-    return render(request, template_name, {'article_list': article_list})
+    paginate_by = 1
+    paginator = Paginator(article_list, paginate_by)
+
+    page = request.GET.get('page', 1)
+
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+
+    return render(request, template_name, {
+        'articles': articles
+    })
 
 def article(request, article_id):
     template_name = 'blog/article.html'
