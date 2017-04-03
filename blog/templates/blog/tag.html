@@ -3,8 +3,11 @@
 {% block main %}
   <h1>{{ tag.name }}</h1>
   <ul>
-  {% for article in tag.article_set.all %}
+  {% for article in articles %}
     <li><a href="/article/{{article.id}}">{{article.title}}</a></li>
   {% endfor %}
   </ul>
+
+  {% include "./pagination.html" %}
+
 {% endblock %}
