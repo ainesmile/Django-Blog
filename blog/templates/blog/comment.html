@@ -1,10 +1,14 @@
 <hr>
 {% for comment in article.comments.all %}
+  {% if comment.approved_comment %}
   <div class="comment">
     <div class="date"> {{ comment.created_date }}</div>
     <strong>{{ comment.commenter }}</strong>
     <p>{{ comment.context | linebreaks }}</p>
   </div>
+  {% endif %}
+  
 {% empty %}
   <p>No comments here yet</p>
 {% endfor %}
+<a href="{% url 'add_comment' article_id=article.id %}">Add comment</a>

@@ -1,8 +1,9 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Article, Tag
+from .forms import CommentForm
 
 def pagination(request, object_list, paginate_by):
     paginator = Paginator(object_list, paginate_by)
@@ -45,6 +46,21 @@ def tag(request, tag_id):
         'object_list': articles
     })
 
+def add_comment(request, article_id):
+    article = Article.objects.get(pk=article_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.article = article
+            comment.save()
+            return redirect('article', article_id=article.id)
+    else:
+        form = CommentForm()
+
+    return render(request, 'blog/add_comment.html', {
+        'form': form
+    })
 
 
 

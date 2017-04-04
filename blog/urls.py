@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^article/(?P<article_id>\d+)/$', views.article, name='article'),
     url(r'^tag/(?P<tag_id>\d+)/$', views.tag, name='tag'),
+    url(r'^article/(?P<article_id>\d+)/comment/$', views.add_comment, name='add_comment'),
 ]
