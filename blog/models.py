@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=200)
     created_date = models.DateTimeField('date created')
@@ -24,3 +25,16 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    article = models.ForeignKey(Article, related_name='comments')
+    commenter = models.CharField(max_length=200)
+    content = models.TextField()
+    created_date = models.DateTimeField()
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.content
